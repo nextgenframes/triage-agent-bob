@@ -1,0 +1,469 @@
+* {
+  box-sizing: border-box;
+}
+
+.videoRoot {
+  background: #040505;
+  color: #f4f4f2;
+  font-family: "SF Mono", "IBM Plex Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  overflow: hidden;
+}
+
+.videoRoot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 28% 15%, rgba(0, 255, 185, 0.12), transparent 30%),
+    radial-gradient(circle at 70% 42%, rgba(47, 115, 255, 0.14), transparent 34%);
+  pointer-events: none;
+}
+
+.videoHeader {
+  position: absolute;
+  left: 54px;
+  right: 54px;
+  top: 42px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.videoHeader h1 {
+  margin: 0;
+  font-size: 54px;
+  line-height: 0.96;
+}
+
+.videoHeader p,
+.heroCopy p,
+.briefText p,
+.handoff p {
+  margin: 12px 0 0;
+  color: #9d9d9d;
+  font-size: 24px;
+  line-height: 1.45;
+}
+
+.videoPills {
+  display: flex;
+  gap: 16px;
+}
+
+.videoPills span,
+.blueTag,
+.redTag,
+.greenTag {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: #101011;
+  padding: 0 22px;
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.videoPills .whitePill {
+  background: #f2f2f0;
+  color: #121212;
+}
+
+.blueTag {
+  color: #bcd0ff;
+  border-color: rgba(47, 115, 255, 0.7);
+  background: rgba(47, 115, 255, 0.16);
+}
+
+.redTag {
+  color: #ffd1d1;
+  border-color: rgba(216, 75, 75, 0.5);
+  background: rgba(216, 75, 75, 0.2);
+}
+
+.greenTag {
+  color: #bff5ca;
+  border-color: rgba(0, 255, 112, 0.45);
+  background: rgba(0, 255, 112, 0.13);
+}
+
+.heroScene,
+.splitScene,
+.warRoom,
+.handoff {
+  position: absolute;
+  left: 54px;
+  right: 54px;
+  top: 160px;
+  bottom: 54px;
+}
+
+.heroScene {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.heroCopy h2,
+.briefText h2,
+.handoff h2,
+.closing h2 {
+  margin: 28px 0 0;
+  max-width: 980px;
+  font-size: 82px;
+  line-height: 1.03;
+}
+
+.consoleCard,
+.warColumn,
+.handoff,
+.perception,
+.step,
+.commitPill {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(12, 12, 13, 0.94);
+}
+
+.consoleCard {
+  padding: 38px;
+  box-shadow: 0 0 60px rgba(47, 115, 255, 0.12);
+}
+
+.consoleTitle,
+.panelLabel {
+  color: #8e8e8e;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.alertLine {
+  margin-top: 28px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 28px;
+  color: #f4f4f2;
+  font-size: 32px;
+  line-height: 1.4;
+}
+
+.statusStrip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.statusStrip span {
+  border-radius: 12px;
+  background: #151516;
+  padding: 20px;
+  color: #cfcfcf;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.splitScene {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 34px;
+  align-items: center;
+}
+
+.perception {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 92%, rgba(92, 232, 219, 0.2), transparent 28%),
+    linear-gradient(180deg, rgba(0, 82, 68, 0.42), rgba(3, 8, 9, 0.92) 54%, rgba(4, 6, 7, 0.98));
+  box-shadow: inset 0 0 95px rgba(0, 0, 0, 0.76), 0 0 42px rgba(0, 255, 175, 0.08);
+}
+
+.roadHaze {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 7%, rgba(0, 255, 175, 0.2), transparent 44%);
+}
+
+.roadGrid {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 7%;
+  bottom: 2%;
+  clip-path: polygon(43% 0, 57% 0, 100% 100%, 0 100%);
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(255, 181, 28, 0.72) 49.5% 50.5%, transparent 51%),
+    repeating-linear-gradient(90deg, transparent 0 13%, rgba(0, 255, 133, 0.2) 13.5% 14%, transparent 14.5% 27%),
+    linear-gradient(180deg, rgba(8, 21, 21, 0.4), rgba(45, 58, 55, 0.34));
+}
+
+.walk {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  height: 42px;
+  background: repeating-linear-gradient(90deg, transparent 0 30px, rgba(255, 255, 255, 0.22) 30px 56px, transparent 56px 88px);
+  transform: perspective(450px) rotateX(62deg);
+  opacity: 0.55;
+}
+
+.walk.near {
+  bottom: 54px;
+}
+
+.walk.far {
+  top: 210px;
+  left: 24%;
+  right: 24%;
+  height: 26px;
+  opacity: 0.35;
+}
+
+.lane,
+.ray {
+  position: absolute;
+  left: 50%;
+  bottom: 112px;
+  width: 4px;
+  transform-origin: bottom;
+}
+
+.lane {
+  height: 455px;
+  background: linear-gradient(180deg, rgba(0, 255, 112, 0.04), rgba(0, 255, 112, 0.82));
+  box-shadow: 0 0 12px rgba(0, 255, 112, 0.58);
+}
+
+.lane.left {
+  transform: rotate(-18deg);
+}
+
+.lane.center {
+  background: linear-gradient(180deg, rgba(255, 183, 24, 0.08), rgba(255, 183, 24, 0.92));
+}
+
+.lane.right {
+  transform: rotate(18deg);
+}
+
+.ray {
+  height: 460px;
+  opacity: 0.95;
+}
+
+.ray0,
+.ray1 {
+  background: linear-gradient(180deg, transparent, #2ffff0);
+  box-shadow: 0 0 12px #2ffff0;
+}
+
+.ray2,
+.ray3 {
+  background: linear-gradient(180deg, transparent, #00ff74);
+  box-shadow: 0 0 10px #00ff74;
+}
+
+.ray4 {
+  background: linear-gradient(180deg, transparent, #ffb31a);
+  box-shadow: 0 0 10px #ffb31a;
+}
+
+.ray5 {
+  background: linear-gradient(180deg, transparent, #ff3c87);
+  box-shadow: 0 0 10px #ff3c87;
+}
+
+.detected,
+.person {
+  position: absolute;
+  border: 3px solid rgba(0, 255, 112, 0.88);
+  background: rgba(0, 255, 112, 0.12);
+  box-shadow: 0 0 18px rgba(0, 255, 112, 0.42);
+}
+
+.detected.car {
+  width: 64px;
+  height: 36px;
+  border-radius: 16px 16px 6px 6px;
+}
+
+.leftCar {
+  left: 39%;
+  top: 196px;
+}
+
+.centerCar {
+  left: 50%;
+  top: 142px;
+}
+
+.rightCar {
+  left: 61%;
+  top: 204px;
+}
+
+.bus {
+  right: 22%;
+  top: 144px;
+  width: 82px;
+  height: 106px;
+  border-radius: 8px;
+}
+
+.person {
+  width: 18px;
+  height: 54px;
+  border-color: rgba(255, 72, 129, 0.9);
+  background: rgba(255, 72, 129, 0.12);
+  border-radius: 999px 999px 6px 6px;
+}
+
+.personLeft {
+  left: 13%;
+  top: 272px;
+}
+
+.personRight {
+  right: 12%;
+  top: 280px;
+}
+
+.egoCar {
+  position: absolute;
+  left: 50%;
+  bottom: 82px;
+  width: 144px;
+  height: 100px;
+  transform: translateX(-50%);
+  border-radius: 66px 66px 22px 22px;
+  background:
+    radial-gradient(circle at 25% 72%, rgba(20, 20, 20, 0.95) 0 15px, transparent 16px),
+    radial-gradient(circle at 75% 72%, rgba(20, 20, 20, 0.95) 0 15px, transparent 16px),
+    linear-gradient(180deg, #f7ffff 0 30%, #cfdce0 31% 62%, #8ea0a5 63%);
+  box-shadow: 0 0 28px rgba(244, 255, 255, 0.46), 0 22px 58px rgba(0, 0, 0, 0.8);
+}
+
+.egoCar::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 16px;
+  height: 38px;
+  border-radius: 32px 32px 8px 8px;
+  background: linear-gradient(180deg, rgba(0, 74, 80, 0.7), rgba(7, 17, 20, 0.92));
+}
+
+.briefGrid {
+  display: grid;
+  gap: 24px;
+}
+
+.stepStack {
+  display: grid;
+  gap: 14px;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  color: #f4f4f2;
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.step span {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 50%;
+  background: #f2f2f0;
+  color: #111;
+}
+
+.warRoom {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 28px;
+}
+
+.warColumn {
+  padding: 34px;
+}
+
+.warColumn h3 {
+  margin: 18px 0 0;
+  font-size: 56px;
+  line-height: 1.05;
+}
+
+.timeline {
+  display: grid;
+  gap: 16px;
+  margin-top: 38px;
+}
+
+.timeline div,
+.commitPill {
+  border-left: 3px solid #5ce8db;
+  background: #151516;
+  border-radius: 12px;
+  padding: 22px;
+  color: #cfcfcf;
+  font-size: 26px;
+}
+
+.commitPill {
+  margin-top: 16px;
+  border-left-color: #2f73ff;
+}
+
+.handoff {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 32px;
+  align-items: center;
+  padding: 44px;
+}
+
+.handoff pre {
+  margin: 0;
+  white-space: pre-wrap;
+  border-radius: 16px;
+  background: #141415;
+  padding: 34px;
+  color: #d7d7d7;
+  font-size: 28px;
+  line-height: 1.45;
+}
+
+.closing {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 40;
+  background: rgba(4, 5, 5, 0.88);
+  text-align: center;
+}
+
+.closing h2 {
+  margin: 0;
+}
+
+.closing p {
+  margin-top: 24px;
+  color: #bdbdbd;
+  font-size: 34px;
+}

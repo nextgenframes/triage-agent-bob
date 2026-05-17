@@ -1,0 +1,24 @@
+{
+  "name": "triage-agent-bob",
+  "private": true,
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4173",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "server": "node server.js",
+    "video:studio": "remotion studio src/remotion/index.jsx",
+    "video:render": "remotion render src/remotion/index.jsx TriageBobLaunch out/triage-bob-launch.mp4",
+    "video:render:fallback": "node scripts/render-launch-video.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.462",
+    "remotion": "^4.0.462",
+    "sharp": "^0.34.5"
+  }
+}
